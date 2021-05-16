@@ -10,7 +10,7 @@
   --key-bg-color: hsl(30, 25%, 89%);
   --key-shadow-color: hsl(28, 16%, 65%);
   --key-text-color: hsl(221, 14%, 31%);
-  --text-color: hsl(0, 0, 100%);
+  --text-color: #fff;
 }
 
 .main {
@@ -19,4 +19,11 @@
   background: var(--main-bg-color);
   color: var(--text-color);
   font-family: 'Spartan', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator-container {
+  width: 50%;
 }
