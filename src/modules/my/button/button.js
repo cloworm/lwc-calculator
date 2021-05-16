@@ -52,4 +52,8 @@ export default class Button extends LightningElement {
     }
     this._hasRendered = true;
   }
+
+  handleClick(event) {
+    this.dispatchEvent(new CustomEvent('buttonclick', { detail: event.target.dataset.value, bubbles: true, composed: true }));
+  }
 }

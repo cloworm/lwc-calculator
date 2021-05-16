@@ -10,6 +10,6 @@ export default class Screen extends LightningElement {
    * @return {string}
    */
   get displayValue() {
-    return this.value.toLocaleString();
+    return this.value ? this.value.toLocaleString() : '0';
   }
 }
