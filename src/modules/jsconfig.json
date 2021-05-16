@@ -1,8 +1,9 @@
 {
-    "compilerOptions": {
-        "experimentalDecorators": true
-    },
-    "typeAcquisition": {
-        "include": ["jest"]
-    }
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "checkJs": true
+  },
+  "typeAcquisition": {
+    "include": ["jest"]
+  }
 }
