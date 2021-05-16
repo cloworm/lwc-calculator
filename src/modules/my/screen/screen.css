@@ -2,6 +2,7 @@
   background: var(--screen-bg-color);
   padding: 38px 32px 36px 32px;
   border-radius: 10px;
+  margin-bottom: 24px;
 }
 
 .value {
