@@ -1,7 +1,7 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 export default class Screen extends LightningElement {
-  value = 399981;
+  @api value = 0;
 
   get displayValue() {
     return this.value.toLocaleString();

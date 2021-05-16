@@ -17,39 +17,14 @@ describe('my-app', () => {
     }
   });
 
-  it('contains a link to the LWC documentation with target set to _blank', () => {
+  it('contains the calculator component', () => {
     const element = createElement('my-app', {
       is: MyApp
     });
     document.body.appendChild(element);
 
-    // Get link
-    const linkEl = element.shadowRoot.querySelector('a');
+    const calculator = element.shadowRoot.querySelector('my-calculator');
 
-    expect(linkEl.target).toBe('_blank');
-  });
-
-  it('contains a link to the LWC documentation with https://', () => {
-    const element = createElement('my-app', {
-      is: MyApp
-    });
-    document.body.appendChild(element);
-
-    // Get link
-    const linkEl = element.shadowRoot.querySelector('a');
-
-    expect(linkEl.href).toMatch(/^https:/);
-  });
-
-  it('contains one active custom element my-greeting', () => {
-    const element = createElement('my-app', {
-      is: MyApp
-    });
-    document.body.appendChild(element);
-
-    // Get array of my-greeting custom elements
-    const greetingEls = element.shadowRoot.querySelectorAll('my-greeting');
-
-    expect(greetingEls.length).toBe(1);
+    expect(calculator.target).not.toBeNull();
   });
 });
