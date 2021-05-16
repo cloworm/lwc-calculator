@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "checkJs": true
+    "checkJs": true,
+    "target": "es2015",
+    "moduleResolution": "node"
   },
   "typeAcquisition": {
-    "include": ["jest"]
+    "include": [
+      "jest"
+    ]
   }
 }

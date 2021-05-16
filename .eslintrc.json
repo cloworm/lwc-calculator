@@ -1,6 +1,11 @@
 {
-  "plugins": ["inclusive-language"],
-  "extends": ["@salesforce/eslint-config-lwc/recommended"],
+  "plugins": [
+    "inclusive-language"
+  ],
+  "extends": [
+    "@salesforce/eslint-config-lwc/recommended",
+    "prettier"
+  ],
   "rules": {
     "@lwc/lwc/no-async-operation": "off",
     "@lwc/lwc/no-inner-html": "warn",
