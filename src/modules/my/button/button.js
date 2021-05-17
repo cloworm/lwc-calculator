@@ -37,6 +37,9 @@ export default class Button extends LightningElement {
     this._hasRendered = true;
   }
 
+  /**
+   * Dispatch buttonclick event with value clicked
+   */
   handleClick(event) {
     let value = event.target.dataset.value;
     value = /^-?\d+$/.test(value) ? +value : value;

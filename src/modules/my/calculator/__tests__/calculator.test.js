@@ -23,25 +23,21 @@ describe('my-calculator', () => {
     const plus = createEvent('buttonclick', '+');
     const equals = createEvent('buttonclick', '=');
     const keypad = element.shadowRoot.querySelector('my-keypad');
-    keypad.dispatchEvent(two);
-
     const screen = element.shadowRoot.querySelector('my-screen');
 
+    keypad.dispatchEvent(two);
     await Promise.resolve();
     expect(screen.value).toEqual(2);
 
     keypad.dispatchEvent(plus);
-
     await Promise.resolve();
     expect(screen.value).toEqual(2);
 
     keypad.dispatchEvent(two);
-
     await Promise.resolve();
     expect(screen.value).toEqual(2);
 
     keypad.dispatchEvent(equals);
-
     await Promise.resolve();
     expect(screen.value).toEqual(4);
   })
@@ -57,25 +53,21 @@ describe('my-calculator', () => {
     const ten = createEvent('buttonclick', 10);
     const equals = createEvent('buttonclick', '=');
     const keypad = element.shadowRoot.querySelector('my-keypad');
-    keypad.dispatchEvent(five);
-
     const screen = element.shadowRoot.querySelector('my-screen');
-
+    
+    keypad.dispatchEvent(five);
     await Promise.resolve();
     expect(screen.value).toEqual(5);
 
     keypad.dispatchEvent(minus);
-
     await Promise.resolve();
     expect(screen.value).toEqual(5);
 
     keypad.dispatchEvent(ten);
-
     await Promise.resolve();
     expect(screen.value).toEqual(10);
 
     keypad.dispatchEvent(equals);
-
     await Promise.resolve();
     expect(screen.value).toEqual(-5);
   })
@@ -91,25 +83,21 @@ describe('my-calculator', () => {
     const three = createEvent('buttonclick', 3);
     const equals = createEvent('buttonclick', '=');
     const keypad = element.shadowRoot.querySelector('my-keypad');
-    keypad.dispatchEvent(two);
-
     const screen = element.shadowRoot.querySelector('my-screen');
 
+    keypad.dispatchEvent(two);
     await Promise.resolve();
     expect(screen.value).toEqual(2);
 
     keypad.dispatchEvent(times);
-
     await Promise.resolve();
     expect(screen.value).toEqual(2);
 
     keypad.dispatchEvent(three);
-
     await Promise.resolve();
     expect(screen.value).toEqual(3);
 
     keypad.dispatchEvent(equals);
-
     await Promise.resolve();
     expect(screen.value).toEqual(6);
   })
@@ -125,26 +113,56 @@ describe('my-calculator', () => {
     const two = createEvent('buttonclick', 2);
     const equals = createEvent('buttonclick', '=');
     const keypad = element.shadowRoot.querySelector('my-keypad');
-    keypad.dispatchEvent(three);
-
     const screen = element.shadowRoot.querySelector('my-screen');
 
+    keypad.dispatchEvent(three);
     await Promise.resolve();
     expect(screen.value).toEqual(3);
 
     keypad.dispatchEvent(divide);
-
     await Promise.resolve();
     expect(screen.value).toEqual(3);
 
     keypad.dispatchEvent(two);
-
     await Promise.resolve();
     expect(screen.value).toEqual(2);
 
     keypad.dispatchEvent(equals);
-
     await Promise.resolve();
     expect(screen.value).toEqual(1.5);
+  })
+
+  it('computes 2 2 + 3 = 25', async () => {
+    const element = createElement('my-screen', {
+      is: Calculator
+    });
+    document.body.appendChild(element);
+
+    const two = createEvent('buttonclick', 2);
+    const three = createEvent('buttonclick', 3);
+    const plus = createEvent('buttonclick', '+');
+    const equals = createEvent('buttonclick', '=');
+    const keypad = element.shadowRoot.querySelector('my-keypad');
+    const screen = element.shadowRoot.querySelector('my-screen');
+    
+    keypad.dispatchEvent(two);
+    await Promise.resolve();
+    expect(screen.value).toEqual(2);
+
+    keypad.dispatchEvent(two);
+    await Promise.resolve();
+    expect(screen.value).toEqual(22);
+
+    keypad.dispatchEvent(plus);
+    await Promise.resolve();
+    expect(screen.value).toEqual(22);
+
+    keypad.dispatchEvent(three);
+    await Promise.resolve();
+    expect(screen.value).toEqual(3);
+
+    keypad.dispatchEvent(equals);
+    await Promise.resolve();
+    expect(screen.value).toEqual(25);
   })
 })

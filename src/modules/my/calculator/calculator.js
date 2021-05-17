@@ -54,7 +54,7 @@ export default class Calculator extends LightningElement {
   }
 
   /**
-   * Applies math operators
+   * Save operator to state
    * @param {string} operator
    * @returns {void}
    */
@@ -65,10 +65,11 @@ export default class Calculator extends LightningElement {
 
     this.operator = operator;
     this.replace = true;
+    this.total = this.displayValue;
   }
 
   /**
-   * Handles numbers
+   * Replace or append number to displayValue
    * @param {number} number
    * @returns {void}
    */
@@ -87,7 +88,7 @@ export default class Calculator extends LightningElement {
   }
 
   /**
-   * Handles delete
+   * Delete a character from displayValue
    * 
    */
   handleDelete() {
@@ -96,6 +97,9 @@ export default class Calculator extends LightningElement {
     }
   }
 
+  /**
+   * Reset calculator state
+   */
   handleReset() {
     this.total = 0;
     this.displayValue = null;
@@ -103,6 +107,9 @@ export default class Calculator extends LightningElement {
     this.operator = null;
   }
 
+  /**
+   * Apply operator to total and displayValue
+   */
   handleEquals() {
     if (!this.displayValue || !this.operator) {
       this.displayValue = null;
