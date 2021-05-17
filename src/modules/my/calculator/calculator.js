@@ -1,11 +1,20 @@
 import { LightningElement } from 'lwc';
 
 export default class Calculator extends LightningElement {
-  displayValue = null;
-  tempNum = '';
-  expression = '';
+  /** @type {number} */
+  displayValue;
+  /** @type {number} */
   total = 0;
+  /** @type {string} */
+  operator = null;
+  /** @type {boolean} */
+  replace = true;
 
+  /**
+   * Route keypad clicks to their handlers
+   * @param {Object} event 
+   * @return {void}
+   */
   handleButtonClick(event) {
     const value = event.detail;
 
@@ -45,49 +54,84 @@ export default class Calculator extends LightningElement {
   }
 
   /**
-   * Handles operator click
+   * Applies math operators
    * @param {string} operator
    * @returns {void}
    */
   handleOperator(operator) {
-    this.displayValue = this.displayValue === null ?
-      null :
-      this.displayValue + operator;
+    if (this.operator) {
+      this.handleEquals();
+    }
+
+    this.operator = operator;
+    this.replace = true;
   }
 
   /**
-   * Handles number click
-   * @param {string} number
+   * Handles numbers
+   * @param {number} number
    * @returns {void}
    */
   handleNumber(number) {
-    if (!this.displayValue) {
+    if (this.replace) {
       this.displayValue = number;
+
+      if (!this.total) {
+        this.total = this.displayValue;
+      }
     } else {
-      this.displayValue += number;
+      this.displayValue = Number(this.displayValue.toString() + number.toString());
     }
+
+    this.replace = false;
   }
 
+  /**
+   * Handles delete
+   * 
+   */
   handleDelete() {
-    if (this.displayValue && this.displayValue.length > 0) {
-      this.displayValue = this.displayValue.slice(0, -1);
+    if (this.displayValue && this.displayValue.toString().length > 0) {
+      this.displayValue = +this.displayValue.toString().slice(0, -1);
     }
   }
 
   handleReset() {
-    this.displayValue = null;
     this.total = 0;
+    this.displayValue = null;
+    this.replace = true;
+    this.operator = null;
   }
 
   handleEquals() {
-    if (!this.displayValue) {
-      this.total = 0;
+    if (!this.displayValue || !this.operator) {
       this.displayValue = null;
       return;
     }
     
-    // eslint-disable-next-line no-eval
-    this.total = eval(this.displayValue);
-    this.displayValue = this.total.toString();
+    switch (this.operator) {
+      case '+':
+        this.total = this.total + this.displayValue;
+        this.displayValue = this.total;
+        break;
+
+      case '-':
+        this.total = this.total - this.displayValue;
+        this.displayValue = this.total;
+        break;
+
+      case '*':
+        this.total = this.total * this.displayValue;
+        this.displayValue = this.total;
+        break;
+
+      case '/':
+        this.total = this.total / this.displayValue;
+        this.displayValue = this.total;
+        break;
+    
+      default:
+        break;
+    }
   }
 }

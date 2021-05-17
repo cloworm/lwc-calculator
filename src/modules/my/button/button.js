@@ -38,6 +38,8 @@ export default class Button extends LightningElement {
   }
 
   handleClick(event) {
-    this.dispatchEvent(new CustomEvent('buttonclick', { detail: event.target.dataset.value, bubbles: true, composed: true }));
+    let value = event.target.dataset.value;
+    value = /^-?\d+$/.test(value) ? +value : value;
+    this.dispatchEvent(new CustomEvent('buttonclick', { detail: value, bubbles: true, composed: true }));
   }
 }
