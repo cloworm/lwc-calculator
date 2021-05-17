@@ -69,7 +69,7 @@ export default class Calculator extends LightningElement {
   }
 
   handleDelete() {
-    if (this.displayValue.length > 0) {
+    if (this.displayValue && this.displayValue.length > 0) {
       this.displayValue = this.displayValue.slice(0, -1);
     }
   }
@@ -80,6 +80,12 @@ export default class Calculator extends LightningElement {
   }
 
   handleEquals() {
+    if (!this.displayValue) {
+      this.total = 0;
+      this.displayValue = null;
+      return;
+    }
+    
     // eslint-disable-next-line no-eval
     this.total = eval(this.displayValue);
     this.displayValue = this.total.toString();

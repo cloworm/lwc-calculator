@@ -9,10 +9,12 @@
   align-items: center;
   justify-content: center;
   box-shadow: inset 0px -4px 0px var(--key-shadow-color);
+  cursor: pointer;
+  transition: background 0.2s ease-out;
 }
 
 .button:hover {
-  filter: brightness(0.9);
+  background: var(--key-hover-bg-color);
 }
 
 .button:active {
@@ -32,4 +34,37 @@
   font-weight: 700;
   line-height: 35.84px;
   letter-spacing: -0.333333px;
+  font-family: 'Spartan', sans-serif;
+}
+
+.accent {
+  background: var(--accent-key-bg-color);
+  color: var(--text-color);
+  box-shadow: inset 0px -4px 0px var(--accent-key-shadow-color);
+}
+
+.accent span {
+  font-size: 20px;
+}
+
+.accent:hover {
+  background: var(--accent-key-hover-bg-color);
+}
+
+.warn {
+  background: var(--warn-key-bg-color);
+  color: var(--text-color);
+  box-shadow: inset 0px -4px 0px var(--warn-key-shadow-color);
+}
+
+.warn span {
+  font-size: 20px;
+}
+
+.warn:hover {
+  background: var(--warn-key-hover-bg-color);
+}
+
+span {
+  padding-bottom: 4px;
 }
