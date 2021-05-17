@@ -1,0 +1,14 @@
+.container {
+  background: var(--screen-bg-color);
+  padding: 38px 32px 36px 32px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.value {
+  text-align: right;
+  opacity: 0.3;
+  font-size: 48px;
+  line-height: 53.76px;
+  margin: 0;
+}

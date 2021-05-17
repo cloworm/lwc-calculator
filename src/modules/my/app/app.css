@@ -1,38 +1,35 @@
-.center {
-    text-align: center;
-}
-.link {
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    background-color: #ff6000;
-    color: white;
-    margin-left: 33%;
-    margin-right: 33%;
-    display: inline-block;
-    margin-top: 1em;
-}
-.info {
-    color: black;
-    background-color: #e4f2f8;
-    margin: auto;
-    padding: 15px 10px;
-    text-align: left;
-    width: 300px;
-    border-radius: 5px;
-}
-.code {
-    font-family: monospace;
-}
-.container {
-    margin-top: 30px;
+/* Theme 1 */
+:host {
+  --main-bg-color: hsl(222, 26%, 31%);
+  --toggle-bg-color: hsl(223, 31%, 20%);
+  --screen-bg-color: hsl(224, 36%, 15%);
+  --accent-key-bg-color: hsl(225, 21%, 49%);
+  --accent-key-shadow-color: hsl(224, 28%, 35%);
+  --accent-key-hover-bg-color: #A2B2E1;
+  --warn-key-bg-color: hsl(6, 63%, 50%);
+  --warn-key-shadow-color: hsl(6, 70%, 34%);
+  --warn-key-hover-bg-color: #F96B5B;
+  --key-bg-color: hsl(30, 25%, 89%);
+  --key-hover-bg-color: #FFFFFE;
+  --key-shadow-color: hsl(28, 16%, 65%);
+  --key-text-color: hsl(221, 14%, 31%);
+  --text-color: #fff;
 }
 
-img {
-    max-width: 150px;
+.main {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--main-bg-color);
+  color: var(--text-color);
+  font-family: 'Spartan', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
 }
 
-.greeting {
-    height: 75px;
+.calculator-container {
+  width: 50%;
+  max-width: 500px;
 }
+

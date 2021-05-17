@@ -1,0 +1,20 @@
+.container {
+  padding: 32px 30px;
+  border-radius: 10px;
+  background: var(--toggle-bg-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  row-gap: 24px;
+  column-gap: 25px;
+}
+
+.reset {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.equals {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
