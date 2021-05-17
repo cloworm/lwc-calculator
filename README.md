@@ -1,11 +1,5 @@
-# calculator
+# Calculator Lightning Web Component
 
-Here will be some information about the app.
+This is a solution to the [Calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29).
 
-## How to start?
-
-Start simple by running `yarn watch` (or `npm run watch`, if you set up the project with `npm`). This will start the project with a local development server.
-
-The source files are located in the [`src`](./src) folder. All web components are within the [`src/modules`](./src/modules) folder. The folder hierarchy also represents the naming structure of the web components.
-
-Find more information on the main repo on [GitHub](https://github.com/muenzpraeger/create-lwc-app).
+Built with [Lightning Web Components](https://lwc.dev/).
